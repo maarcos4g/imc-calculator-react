@@ -4,6 +4,8 @@ import styles from './App.module.css'
 
 import poweredImage from './assets/powered.png'
 
+import { levels, calculateIMC } from './lib/imc'
+
 function App() {
   const [heightInput, setHeightInput] = useState<number>(0);
   const [weightInput, setWeightInput] = useState<number>(0);
