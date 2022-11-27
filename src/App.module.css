@@ -48,6 +48,10 @@ body {
   outline: none;
 }
 
+.leftSide input:disabled {
+  opacity: .5;
+}
+
 .buttonCalculate {
   background-color: #227C9D;
   color: #FFF;
@@ -67,6 +71,11 @@ body {
 
 .buttonCalculate:hover {
   opacity: .9;
+}
+
+.buttonCalculate:disabled {
+  opacity: .5;
+  cursor: no-drop;
 }
 
 .rightSide {

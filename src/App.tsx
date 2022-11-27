@@ -54,6 +54,7 @@ function App() {
             placeholder="Digite a sua altura. Ex.: 1.5 (em metros)"
             value={heightInput > 0 ? heightInput : ''}
             onChange={event => setHeightInput(parseFloat(event.target.value))}
+            disabled={toShow ? true : false}
           />
 
           <input
@@ -62,11 +63,14 @@ function App() {
             placeholder="Digite o seu peso. Ex.: 75.3 (em kg)"
             value={weightInput > 0 ? weightInput : ''}
             onChange={event => setWeightInput(parseFloat(event.target.value))}
+            disabled={toShow ? true : false}
           />
 
           <button
             className={styles.buttonCalculate}
-            onClick={handleCalculateIMC}>
+            onClick={handleCalculateIMC}
+              disabled={toShow ? true : false}
+          >
             Calcular
           </button>
         </div>
