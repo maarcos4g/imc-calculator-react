@@ -3,20 +3,30 @@ import { useState } from 'react';
 import styles from './App.module.css'
 
 import poweredImage from './assets/powered.png'
+import leftArrowIcon from './assets/leftArrow.png'
+
 import { IMCItem } from './components/IMCItem';
 
-import { levels, calculateIMC } from './lib/imc'
+import { levels, calculateIMC, Level } from './lib/imc'
 
 function App() {
   const [heightInput, setHeightInput] = useState<number>(0);
   const [weightInput, setWeightInput] = useState<number>(0);
 
+  const [toShow, setToShow] = useState<Level | null>(null);
+
   function handleCalculateIMC() {
     if (heightInput && weightInput) {
-      // code here
+      setToShow(calculateIMC(heightInput, weightInput))
     } else {
       alert('Parece que algum campo está vazio. Verifique e depois tente novamente')
     }
+  }
+
+  function handleGoBack() {
+    setToShow(null)
+    setHeightInput(0)
+    setWeightInput(0)
   }
 
   return (
@@ -62,11 +72,25 @@ function App() {
         </div>
 
         <div className={styles.rightSide}>
-          <div className={styles.containerGrid}>
-            {levels.map((item, key) => (
-              <IMCItem key={key} data={item} />
-            ))}
-          </div>
+          {!toShow ? (
+            <div className={styles.containerGrid}>
+              {levels.map((item, key) => (
+                <IMCItem key={key} data={item} />
+              ))}
+            </div>
+          ) : (
+            <div className={styles.showInfo}>
+
+              <div className={styles.arrowIcon} onClick={handleGoBack}>
+                <img src={leftArrowIcon}
+                  alt="Icone de seta virada para a esquerda"
+                  width={25}
+                />
+              </div>
+
+              <IMCItem data={toShow} />
+            </div>
+          )}
         </div>
 
       </main>

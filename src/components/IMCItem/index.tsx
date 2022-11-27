@@ -26,9 +26,16 @@ export function IMCItem({ data }: Props) {
         {data.title}
       </div>
 
+      {
+        data.yourImc ?
+        <div className={styles.yourIMC}>
+          Seu IMC é de {data.yourImc} kg/m²
+        </div> : ''
+      }
+
       <div className={styles.info}>
         <>
-        IMC está entre <strong>{data.imc[0]}</strong> e <strong>{data.imc[1]}</strong>
+          IMC está entre <strong>{data.imc[0]}</strong> e <strong>{data.imc[1]}</strong>
         </>
       </div>
     </div>

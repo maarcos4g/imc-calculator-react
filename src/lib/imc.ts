@@ -41,8 +41,9 @@ export function calculateIMC(height: number, weight: number) {
 
   for (let index in levels) {
     if (imc >= levels[index].imc[0] && imc <= levels[index].imc[1]) {
-      levels[index].yourImc = imc;
-        return levels[index];
+      let levelsCopy: Level = {...levels[index]}
+      levelsCopy.yourImc = parseFloat(imc.toFixed(2));
+        return levelsCopy;
       }
   }
 
