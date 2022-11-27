@@ -51,13 +51,17 @@ body {
 .buttonCalculate {
   background-color: #227C9D;
   color: #FFF;
+
   font-size: 15px;
+
   border: 0;
   border-radius: 10px;
   padding: 15px 0;
-  width: 100%;
-  cursor: pointer;
   margin-top: 40px;
+
+  width: 100%;
+
+  cursor: pointer;
   transition: all ease .3s;
 }
 
@@ -66,6 +70,14 @@ body {
 }
 
 .rightSide {
+  display: flex;
   flex: 1;
   margin-left: 40px;
+}
+
+.containerGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }

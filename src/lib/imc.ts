@@ -1,4 +1,4 @@
-interface Level {
+export interface Level {
   title: string;
   color: string;
   icon: 'down' | 'up';

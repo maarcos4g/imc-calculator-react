@@ -3,6 +3,7 @@ import { useState } from 'react';
 import styles from './App.module.css'
 
 import poweredImage from './assets/powered.png'
+import { IMCItem } from './components/IMCItem';
 
 import { levels, calculateIMC } from './lib/imc'
 
@@ -22,11 +23,11 @@ function App() {
     <div className={styles.main}>
       <header>
         <div className={styles.headerContainer}>
-          <img src={poweredImage} alt="" width={150} />
+          <img src={poweredImage} alt="Logo da aplicação" width={150} />
         </div>
       </header>
 
-      <div className={styles.container}>
+      <main className={styles.container}>
 
         <div className={styles.leftSide}>
           <h1 className={styles.title}>Calcule seu IMC</h1>
@@ -61,10 +62,14 @@ function App() {
         </div>
 
         <div className={styles.rightSide}>
-          RightSide
+          <div className={styles.containerGrid}>
+            {levels.map((item, key) => (
+              <IMCItem key={key} data={item} />
+            ))}
+          </div>
         </div>
 
-      </div>
+      </main>
     </div>
   )
 }
